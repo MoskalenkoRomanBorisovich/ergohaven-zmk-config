@@ -202,11 +202,11 @@
 &trans  &trans    &trans    &trans    &trans    &trans                     &trans  &trans             &trans           &trans        &trans         &trans
 &trans  &mkp MB4  &mkp MB3  &mkp MB2  &mkp MB1  &mkp MB5                   &trans  &kp RIGHT_CONTROL  &kp RIGHT_SHIFT  &kp LEFT_ALT  &kp RIGHT_WIN  &trans
 &trans  &trans    &trans    &trans    &trans    &trans                     &trans  &trans             &trans           &trans        &trans         &trans
-                  &trans    &trans    &mo 8     &kp TAB   &mo 7    &trans  &trans  &trans             &trans           &trans
+                  &trans    &trans    &mo 7     &kp TAB   &mo 8    &trans  &trans  &trans             &trans           &trans
             >;
         };
 
-        scroll {
+        sniper {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
@@ -215,7 +215,7 @@
             >;
         };
 
-        sniper {
+        scroll {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
