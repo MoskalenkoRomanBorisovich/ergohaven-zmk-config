@@ -114,6 +114,23 @@
 
             label = "SHIFT_EN_MO";
         };
+
+        en_mo: en_mo {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings =
+                <&macro_tap>,
+                <&ru_en_switch>,
+                <&macro_press>,
+                <&macro_param_1to1 &mo MACRO_PLACEHOLDER>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&macro_param_1to1 &mo MACRO_PLACEHOLDER>,
+                <&macro_tap>,
+                <&ru_en_switch>;
+
+            label = "EN_MO";
+        };
     };
 
     keymap {
@@ -121,10 +138,10 @@
 
         en {
             bindings = <
-&trans         &kp Q           &kp W           &kp E             &kp R               &kp T                                    &kp Y        &kp U                &kp I              &kp O           &kp P               &trans
-&kp BACKSPACE  &mt LEFT_GUI A  &mt LEFT_ALT S  &mt LEFT_SHIFT D  &mt LEFT_CONTROL F  &kp G                                    &kp H        &mt RIGHT_CONTROL J  &mt RIGHT_SHIFT K  &mt LEFT_ALT L  &mt RIGHT_WIN SEMI  &kp SQT
-&kp DELETE     &kp Z           &kp X           &kp C             &kp V               &kp B                                    &kp N        &kp M                &kp COMMA          &kp DOT         &kp FSLH            &trans
-                               &layer_ru       &layer_en         &lt 9 ESC           &lt 3 TAB  &lt 10 SPACE    &lt 10 ENTER  &shift_mo 4  &sen_mo 6            &trans             &trans
+&trans         &kp Q           &kp W           &kp E             &kp R               &kp T                                  &kp Y         &kp U                &kp I              &kp O           &kp P               &trans
+&kp BACKSPACE  &mt LEFT_GUI A  &mt LEFT_ALT S  &mt LEFT_SHIFT D  &mt LEFT_CONTROL F  &kp G                                  &kp H         &mt RIGHT_CONTROL J  &mt RIGHT_SHIFT K  &mt LEFT_ALT L  &mt RIGHT_WIN SEMI  &kp SQT
+&kp DELETE     &kp Z           &kp X           &kp C             &kp V               &kp B                                  &kp N         &kp M                &kp COMMA          &kp DOT         &kp FSLH            &trans
+                               &layer_ru       &layer_en         &lt 7 ESC           &lt 3 TAB  &lt 8 SPACE    &lt 8 ENTER  &shift_mo 10  &sen_mo 4            &trans             &trans
             >;
 
             display-name = "en";
@@ -133,10 +150,10 @@
         ru {
             display-name = "ru";
             bindings = <
-&kp RU_CYRILLIC_IO  &kp RU_CYRILLIC_SHORT_I  &kp RU_CYRILLIC_TSE  &kp RU_CYRILLIC_U   &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_IE                             &kp RU_CYRILLIC_EN  &kp RU_CYRILLIC_GHE        &kp RU_CYRILLIC_SHA        &kp RU_CYRILLIC_SHCHA  &kp RU_CYRILLIC_ZE  &kp RU_CYRILLIC_HA
-&kp BACKSPACE       &trans                   &trans               &trans              &trans              &kp RU_CYRILLIC_PE                             &kp RU_CYRILLIC_ER  &trans                     &trans                     &trans                 &trans              &kp RU_CYRILLIC_E
-&kp DELETE          &kp RU_CYRILLIC_YA       &kp RU_CYRILLIC_CHE  &kp RU_CYRILLIC_ES  &kp RU_CYRILLIC_EM  &kp RU_CYRILLIC_I                              &kp RU_CYRILLIC_TE  &kp RU_CYRILLIC_SOFT_SIGN  &kp RU_COMMA               &kp RU_DOT             &kp RU_CYRILLIC_BE  &kp RU_CYRILLIC_YU
-                                             &trans               &trans              &trans              &trans              &kp SPACE    &lt 11 ENTER  &shift_en_mo 4      &trans                     &kp RU_CYRILLIC_HARD_SIGN  &trans
+&kp RU_CYRILLIC_IO  &kp RU_CYRILLIC_SHORT_I  &kp RU_CYRILLIC_TSE  &kp RU_CYRILLIC_U   &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_IE                         &kp RU_CYRILLIC_EN  &kp RU_CYRILLIC_GHE        &kp RU_CYRILLIC_SHA        &kp RU_CYRILLIC_SHCHA  &kp RU_CYRILLIC_ZE  &kp RU_CYRILLIC_HA
+&kp BACKSPACE       &trans                   &trans               &trans              &trans              &kp RU_CYRILLIC_PE                         &kp RU_CYRILLIC_ER  &trans                     &trans                     &trans                 &trans              &kp RU_CYRILLIC_E
+&kp DELETE          &kp RU_CYRILLIC_YA       &kp RU_CYRILLIC_CHE  &kp RU_CYRILLIC_ES  &kp RU_CYRILLIC_EM  &kp RU_CYRILLIC_I                          &kp RU_CYRILLIC_TE  &kp RU_CYRILLIC_SOFT_SIGN  &kp RU_COMMA               &kp RU_DOT             &kp RU_CYRILLIC_BE  &kp RU_CYRILLIC_YU
+                                             &trans               &trans              &trans              &trans              &kp SPACE    &en_mo 8  &shift_en_mo 10     &trans                     &kp RU_CYRILLIC_HARD_SIGN  &trans
             >;
         };
 
@@ -154,32 +171,10 @@
 &trans  &trans        &trans        &trans          &trans            &trans                    &kp SCROLLLOCK    &kp HOME  &kp UP      &kp END          &kp PG_UP      &trans
 &trans  &kp LEFT_GUI  &kp LEFT_ALT  &kp LEFT_SHIFT  &kp LEFT_CONTROL  &trans                    &kp RS(CAPSLOCK)  &kp LEFT  &kp DOWN    &kp RIGHT_ARROW  &kp PAGE_DOWN  &trans
 &trans  &trans        &trans        &trans          &trans            &trans                    &trans            &trans    &kp K_MENU  &trans           &trans         &trans
-                      &trans        &trans          &trans            &trans  &trans    &trans  &mo 5             &trans    &trans      &trans
+                      &trans        &trans          &trans            &trans  &trans    &trans  &trans            &trans    &trans      &trans
             >;
 
             display-name = "nav";
-        };
-
-        sym {
-            bindings = <
-&kp GRAVE  &kp NUMBER_4  &kp N2     &kp N3  &kp SQT   &kp N6                         &trans  &trans  &trans  &trans  &trans  &trans
-&trans     &kp N1        &kp BSLH   &kp N7  &kp FSLH  &kp SEMI                       &trans  &trans  &trans  &trans  &trans  &trans
-&trans     &kp LBKT      &kp COMMA  &kp N5  &kp DOT   &kp RBKT                       &trans  &trans  &trans  &trans  &trans  &trans
-                         &trans     &trans  &kp N9    &kp N0    &kp MINUS    &trans  &trans  &trans  &trans  &trans
-            >;
-
-            display-name = "sym";
-        };
-
-        adj {
-            bindings = <
-&bootloader  &trans  &kp F1  &kp F2   &kp F3   &kp F4                     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2      &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR
-&trans       &trans  &kp F5  &kp F6   &kp F7   &kp F8                     &out OUT_BLE  &kp C_VOL_DN  &kp K_MUTE        &kp C_VOL_UP  &trans        &studio_unlock
-&trans       &trans  &kp F9  &kp F10  &kp F11  &kp F12                    &out OUT_USB  &kp K_PREV    &kp K_PLAY_PAUSE  &kp K_NEXT    &trans        &trans
-                     &trans  &trans   &trans   &trans   &trans    &trans  &trans        &trans        &trans            &trans
-            >;
-
-            display-name = "adj";
         };
 
         mouse {
@@ -187,7 +182,7 @@
 &trans  &trans        &trans        &trans          &trans            &trans                    &trans    &trans    &trans    &trans    &trans    &trans
 &trans  &kp LEFT_GUI  &kp LEFT_ALT  &kp LEFT_SHIFT  &kp LEFT_CONTROL  &trans                    &mkp MB4  &mkp MB1  &mkp MB2  &mkp MB3  &mkp MB5  &trans
 &trans  &trans        &trans        &trans          &trans            &trans                    &trans    &trans    &trans    &trans    &trans    &trans
-                      &trans        &trans          &mo 8             &kp TAB  &mo 7    &trans  &trans    &trans    &trans    &trans
+                      &trans        &trans          &mo 6             &kp TAB  &mo 5    &trans  &trans    &trans    &trans    &trans
             >;
         };
 
@@ -227,13 +222,26 @@
             >;
         };
 
-        numeric_ru {
+        sym {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&kp GRAVE  &kp NUMBER_4  &kp N2     &kp N3  &kp SQT   &kp N6                         &trans  &trans  &trans  &trans  &trans  &trans
+&trans     &kp N1        &kp BSLH   &kp N7  &kp FSLH  &kp SEMI                       &trans  &trans  &trans  &trans  &trans  &trans
+&trans     &kp LBKT      &kp COMMA  &kp N5  &kp DOT   &kp RBKT                       &trans  &trans  &trans  &trans  &trans  &trans
+                         &trans     &trans  &kp N9    &kp N0    &kp MINUS    &trans  &trans  &trans  &trans  &trans
             >;
+
+            display-name = "sym";
+        };
+
+        adj {
+            bindings = <
+&bootloader  &trans  &kp F1  &kp F2   &kp F3   &kp F4                     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2      &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR
+&trans       &trans  &kp F5  &kp F6   &kp F7   &kp F8                     &out OUT_BLE  &kp C_VOL_DN  &kp K_MUTE        &kp C_VOL_UP  &trans        &studio_unlock
+&trans       &trans  &kp F9  &kp F10  &kp F11  &kp F12                    &out OUT_USB  &kp K_PREV    &kp K_PLAY_PAUSE  &kp K_NEXT    &trans        &trans
+                     &trans  &trans   &trans   &trans   &trans    &trans  &trans        &trans        &trans            &trans
+            >;
+
+            display-name = "adj";
         };
     };
 };
