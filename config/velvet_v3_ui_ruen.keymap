@@ -168,7 +168,7 @@
             bindings = <
 &trans  &trans        &trans        &trans          &trans            &trans                           &kp SCROLLLOCK    &kp HOME  &kp UP      &kp END          &kp PG_UP      &trans
 &trans  &kp LEFT_GUI  &kp LEFT_ALT  &kp LEFT_SHIFT  &kp LEFT_CONTROL  &trans                           &kp RS(CAPSLOCK)  &kp LEFT  &kp DOWN    &kp RIGHT_ARROW  &kp PAGE_DOWN  &trans
-&trans  &trans        &trans        &trans          &trans            &trans                           &trans            &trans    &kp K_MENU  &trans           &trans         &trans
+&trans  &trans        &trans        &trans          &trans            &trans                           &trans            &trans    &kp C_MENU  &trans           &trans         &trans
                       &trans        &trans          &trans            &trans  &trans    &kp BACKSPACE  &kp DELETE        &trans    &trans      &trans
             >;
 
@@ -187,7 +187,7 @@
         utils {
             bindings = <
 &bt BT_CLR  &bt BT_SEL 4  &bt BT_SEL 3       &bt BT_SEL 2  &bt BT_SEL 1     &bt BT_SEL 0                    &trans  &trans             &trans           &trans        &trans             &trans
-&trans      &trans        &kp C_VOLUME_DOWN  &kp K_MUTE    &kp C_VOLUME_UP  &out OUT_TOG                    &trans  &kp RIGHT_CONTROL  &kp RIGHT_SHIFT  &kp LEFT_ALT  &kp RS(RIGHT_GUI)  &trans
+&trans      &trans        &kp C_VOLUME_DOWN  &kp C_MUTE    &kp C_VOLUME_UP  &out OUT_TOG                    &trans  &kp RIGHT_CONTROL  &kp RIGHT_SHIFT  &kp LEFT_ALT  &kp RS(RIGHT_GUI)  &trans
 &trans      &trans        &trans             &trans        &trans           &trans                          &trans  &trans             &trans           &trans        &trans             &trans
                           &trans             &trans        &trans           &trans        &trans    &trans  &trans  &trans             &trans           &trans
             >;
